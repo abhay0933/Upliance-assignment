@@ -40,9 +40,9 @@ const RichTextEditor = ({ initialContent }) => {
 
   return (
     <animated.div style={editorSpring}>
-      <Flex direction="column" align="center" justify="center" minH="100vh" p="4">
+      <Flex direction="column" align="center" boxShadow="lg" border='1px solid white' borderRadius='10px' justify="center" minH="100vh" p="4">
         <Text fontSize="2xl" fontWeight="bold" mb="4" textAlign="center">Rich Text Editor</Text>
-        <Box width="800px" boxShadow="lg" p="6" borderRadius="md" bg="white">
+        <Box width="800px"  p="6" borderRadius="md" bg="white">
           <ReactQuill 
             value={editorContent} 
             onChange={handleEditorChange} 

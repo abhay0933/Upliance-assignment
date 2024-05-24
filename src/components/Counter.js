@@ -3,7 +3,7 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react';
 
 const Counter = ({ count, handleIncrement, handleDecrement, handleReset }) => {
   return (
-    <Box p="6" boxShadow="lg" borderRadius="md" bg="transparent" mt='10' w="500px" h="500px">
+    <Box p="6" boxShadow="lg" borderRadius="md" border = '1px solid white' bg="transparent" mt='10' w="500px" h="500px">
       <Flex direction="column" align="center">
         <Text fontSize="2xl" fontWeight="bold" mb="4" textAlign="center">Counter</Text>
         <Flex direction="column" align="center" justify="center" flex="1">

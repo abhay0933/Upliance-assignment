@@ -73,8 +73,12 @@ const UserDataForm = ({ onUserDataSave }) => {
         direction="column"
         align="center"
         justify="center"
-        minH="100vh"
+        // minH="100vh"
         boxShadow="lg"
+        mt= '10'
+        p='5'
+        borderRadius='10px'
+        border='1px solid white'
       >
         <Text fontSize="2xl" fontWeight="bold" mb="4" textAlign="center">
           User Form
