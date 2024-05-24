@@ -4,10 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import SignupPage from "./components/SignUp";
 import LoginPage from "./components/LogIn";
+import theme from "./theme/theme";
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme= {theme}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignupPage />} />
