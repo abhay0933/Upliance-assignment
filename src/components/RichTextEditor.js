@@ -23,6 +23,7 @@ const RichTextEditor = ({ initialContent }) => {
 
   const handleEditorChange = (content) => {
     setEditorContent(content);
+    // console.log("hello");
   };
 
   const handleSave = () => {
