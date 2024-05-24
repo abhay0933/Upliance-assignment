@@ -50,7 +50,7 @@ const LoginPage = () => {
           <Button type="submit" colorScheme="blue" width="100%">Login</Button>
         </form>
         <Text mt="4" textAlign="center">
-          Don't have an account? <Link as={RouterLink} to="/" color="blue.500">Signup here</Link>
+          Don't have an account? <Link as={RouterLink} to="/signup" color="blue.500">Signup here</Link>
         </Text>
         <Button mt="4" colorScheme="red" width="100%" onClick ={signInWithGoogle}>Signup with Google</Button>
       </Box>

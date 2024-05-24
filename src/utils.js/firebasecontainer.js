@@ -18,7 +18,6 @@ export const signInWithGoogle = async () => {
     // navigate('/home')
 }
 
-
 export const signoutfn = async() => {
   await auth.signOut().then(()=>{
     window.location.reload();

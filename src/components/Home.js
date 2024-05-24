@@ -4,10 +4,14 @@ import { useSpring, animated } from 'react-spring';
 import Counter from './Counter';
 import UserDataForm from './UserFormData';
 import RichTextEditor from './RichTextEditor';
+import Navbar from './Navbar'; // Importing the Navbar component
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [count, setCount] = useState(0);
   const [userData, setUserData] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleIncrement = () => setCount(prevCount => (prevCount < 50 ? prevCount + 1 : prevCount));
   const handleDecrement = () => setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
@@ -31,6 +35,7 @@ const Home = () => {
   return (
     <Flex direction="column" align="center" justify="center" minH="100vh" p="4" position="relative" overflow="hidden">
       <animated.div style={{ ...heightSpring, ...colorSpring, position: 'absolute', top: 0, left: 0, right: 0, zIndex: -1 }} />
+      <Navbar /> {/* Navbar Component */}
       <Flex direction="row" justify="space-between" width="100%" maxW="1200px" mb="8">
         <Counter
           count={count}
