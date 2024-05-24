@@ -49,7 +49,7 @@ const RichTextEditor = ({ initialContent }) => {
             theme="snow" 
             style={{ height: '300px', color:'black' }} 
           />
-          <Button colorScheme="blue" mt="4" onClick={handleSave}>Save</Button>
+          <Button colorScheme="blue" mt="12" onClick={handleSave}>Save</Button>
         </Box>
       </Flex>
     </animated.div>
