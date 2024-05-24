@@ -6,11 +6,12 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Text,
   useToast,
 } from "@chakra-ui/react";
 import { useSpring, animated } from "react-spring";
 
-const UserDataForm = () => {
+const UserDataForm = ({ onUserDataSave }) => {
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -23,7 +24,7 @@ const UserDataForm = () => {
   const toast = useToast();
 
   useEffect(() => {
-    const handleBeforeUnload = e => {
+    const handleBeforeUnload = (e) => {
       if (isFormDirty) {
         e.preventDefault();
         e.returnValue = ""; // Show a custom message in some browsers
@@ -37,12 +38,12 @@ const UserDataForm = () => {
     };
   }, [isFormDirty]);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setIsFormDirty(true);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const userId = `user_${Date.now()}`; // Autogenerate user ID
     const userData = { ...formData, userId };
@@ -55,6 +56,9 @@ const UserDataForm = () => {
       duration: 5000,
       isClosable: true,
     });
+
+    // Pass user data to the parent component
+    onUserDataSave(userData);
   };
 
   const formSpring = useSpring({
@@ -65,42 +69,51 @@ const UserDataForm = () => {
 
   return (
     <animated.div style={formSpring}>
-      <Flex direction='column' align='center' width= "500px" h='500px' justify='center' minH='100vh'>
-        <Box width='400px' p='8' boxShadow='lg' borderRadius='md'>
+      <Flex
+        direction="column"
+        align="center"
+        justify="center"
+        minH="100vh"
+        boxShadow="lg"
+      >
+        <Text fontSize="2xl" fontWeight="bold" mb="4" textAlign="center">
+          User Form
+        </Text>
+        <Box width="400px" p="12" borderRadius="md">
           <form onSubmit={handleSubmit}>
-            <FormControl id='name' mb='4'>
+            <FormControl id="name" mb="4">
               <FormLabel>Name</FormLabel>
               <Input
-                name='name'
+                name="name"
                 value={formData.name}
                 onChange={handleChange}
               />
             </FormControl>
-            <FormControl id='address' mb='4'>
+            <FormControl id="address" mb="4">
               <FormLabel>Address</FormLabel>
               <Input
-                name='address'
+                name="address"
                 value={formData.address}
                 onChange={handleChange}
               />
             </FormControl>
-            <FormControl id='email' mb='4'>
+            <FormControl id="email" mb="4">
               <FormLabel>Email</FormLabel>
               <Input
-                name='email'
+                name="email"
                 value={formData.email}
                 onChange={handleChange}
               />
             </FormControl>
-            <FormControl id='phone' mb='4'>
+            <FormControl id="phone" mb="4">
               <FormLabel>Phone</FormLabel>
               <Input
-                name='phone'
+                name="phone"
                 value={formData.phone}
                 onChange={handleChange}
               />
             </FormControl>
-            <Button colorScheme='blue' type='submit'>
+            <Button colorScheme="blue" type="submit">
               Submit
             </Button>
           </form>

@@ -1,6 +1,9 @@
 import { GoogleAuthProvider, signInWithRedirect} from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 // import { useNavigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom'; 
+
+// const history = useHistory()
 
 
 const googleprovider = new GoogleAuthProvider();

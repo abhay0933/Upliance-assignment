@@ -7,6 +7,7 @@ import RichTextEditor from './RichTextEditor';
 
 const Home = () => {
   const [count, setCount] = useState(0);
+  const [userData, setUserData] = useState(null);
 
   const handleIncrement = () => setCount(prevCount => (prevCount < 50 ? prevCount + 1 : prevCount));
   const handleDecrement = () => setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
@@ -22,6 +23,11 @@ const Home = () => {
     config: { tension: 200, friction: 20 }
   });
 
+  // Function to handle saving user data from UserDataForm component
+  const handleUserDataSave = (data) => {
+    setUserData(data);
+  };
+
   return (
     <Flex direction="column" align="center" justify="center" minH="100vh" p="4" position="relative" overflow="hidden">
       <animated.div style={{ ...heightSpring, ...colorSpring, position: 'absolute', top: 0, left: 0, right: 0, zIndex: -1 }} />
@@ -32,10 +38,10 @@ const Home = () => {
           handleDecrement={handleDecrement}
           handleReset={handleReset}
         />
-        <UserDataForm />
+        <UserDataForm onUserDataSave={handleUserDataSave} />
       </Flex>
       <Box width="100%" maxW="1200px">
-        <RichTextEditor />
+        <RichTextEditor initialContent={userData} />
       </Box>
     </Flex>
   );
