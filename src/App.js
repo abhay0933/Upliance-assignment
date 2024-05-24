@@ -34,8 +34,8 @@ const AppRouter = () => {
 
   return (
     <Routes>
-      <Route path="/signup" element={<SignupPage />} />
-      <Route path="/home/*" element={<Home />} />
+      <Route path="/" element={<SignupPage />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
